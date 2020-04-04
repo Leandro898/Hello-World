@@ -13,13 +13,8 @@
 //     $("#lista").text(variableAcumuladora);
 
 //     }
-        
-        
-
-
 
 class Product {
-    
     constructor(precio, nombre) {
         this.precio = precio;
         this.nombre = nombre;
@@ -42,7 +37,6 @@ class UserInterface {
         `;
         lista.appendChild(element);
         this.resetForm();
-        
     }
 
     otro(ter){
@@ -127,19 +121,24 @@ document.getElementById("primero").addEventListener("click", function(){
 
 
 document.getElementById("segundo").addEventListener("click", function(){
-    
-    const valor = document.getElementById("precio").value;
-    const nombre = document.getElementById("segundo").name;
-    const sec = new Product(valor);
-    const ui = new UserInterface();
+    const producto = {
+        nombre: document.getElementById("segundo").name,
+        precio: document.getElementById("precio").value
+    }
 
-    if(valor === "") {
+    console.log(producto.precio)
+
+    if(producto.precio === "") {
         // valor.setAttribute("placeholder", "Ingresar Importe");
         return false;    
     } 
+
+    const ui = new UserInterface();
+
+    
             
     
-    ui.agregar(sec);
+    ui.agregar(producto);
     ui.resetForm();
     });    
 
